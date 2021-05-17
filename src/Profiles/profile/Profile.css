@@ -1,0 +1,13 @@
+.row{
+       
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    gap: 2.5em;
+    margin-top: 4rem;
+
+}
+.image img{
+    width: 100%;
+    height: 300px;
+}
