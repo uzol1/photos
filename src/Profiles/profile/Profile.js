@@ -1,23 +1,16 @@
 
 import React, { useState, useEffect } from 'react'
 import './Profile.css'
+import { checkImage } from '../../shared/utility'
 
 
 const Profile = (props) => {
 
     const [url, setUrl] = useState("");
 
-    const checkImage = path =>
-        new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve({ path, status: "ok" });
-            img.onerror = () => resolve({ path, status: "error" });
-            img.src = path;
-        });
-
     useEffect(() => {
 
-        var testData = "";
+        let testData = "";
         for (let i = 0; i < props.photos.length; i++) {
             checkImage(props.photos[i]).then((urls) => {
                 if (urls.status === "ok" && !testData) {

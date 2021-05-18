@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Profile from './profile/Profile'
+import { sortedPhotoArray } from '../shared/utility'
 
 const Profiles = (props) => {
     const [datas, setData] = useState([])
@@ -11,21 +12,6 @@ const Profiles = (props) => {
                 setData([...response.data])
             })
     }, [])
-
-
-    const sortedPhotoArray = (photos) => {
-        const sortOrder = ["google", "linkedin", "facebook", "twitter", "office365", "undefined"]
-        let items = [...photos]
-
-        items.sort(function (a, b) {
-            return sortOrder.indexOf(a.source) - sortOrder.indexOf(b.source);
-        });
-
-        const urlArray = items.map((item) => {
-            return item.url
-        })
-        return urlArray;
-    }
 
     return (
         <div>
