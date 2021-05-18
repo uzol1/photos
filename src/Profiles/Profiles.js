@@ -17,7 +17,10 @@ const Profiles = (props) => {
         <div>
             <div className="row">
                 {datas.map(data => {
-                    return <Profile key={data.firstName} name={`${data.firstName} ${data.lastName}`} photos={sortedPhotoArray(data.photos)} />
+                    return <Profile
+                        key={data.firstName} name={data.lastName ? `${data.firstName} ${data.lastName}` : `${data.firstName}`}
+                        photos={sortedPhotoArray(data.photos)}
+                    />
                 })}
             </div>
         </div>
