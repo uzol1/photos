@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css'
 import { checkImage } from '../../shared/utility'
+import shiloutte from '../../assets/shiloutte.jpg'
 
 
 const Profile = (props) => {
@@ -22,12 +23,16 @@ const Profile = (props) => {
 
     }, [props.photos])
 
+    const imageErrorHandler = (ev) => {
+        ev.target.src = shiloutte;
+        ev.target.onerror = null;
+    }
 
     return (
         <div className="column-box" id="img">
             <div className="image" >
                 <div id="img">
-                    <img src={url} alt={url} />
+                    <img src={url} alt={url} onError={imageErrorHandler} />
                 </div>
             </div>
             <div className="text">
